@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cửa Hàng Sản Phẩm</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🛍️ Cửa Hàng Sản Phẩm</h1>
+            <p>Khám phá bộ sưu tập sản phẩm của chúng tôi</p>
+        </header>
+
+        <div class="filter-section">
+            <label for="searchInput">Tìm kiếm:</label>
+            <input 
+                type="text" 
+                id="searchInput" 
+                placeholder="Tìm kiếm theo tên sản phẩm..."
+            >
+            
+            <label for="categoryFilter">Danh mục:</label>
+            <select id="categoryFilter">
+                <option value="">Tất cả danh mục</option>
+            </select>
+
+            <label for="minPrice">Giá tối thiểu:</label>
+            <input 
+                type="number" 
+                id="minPrice" 
+                placeholder="0" 
+                min="0"
+            >
+
+            <label for="maxPrice">Giá tối đa:</label>
+            <input 
+                type="number" 
+                id="maxPrice" 
+                placeholder="10000" 
+                min="0"
+            >
+
+            <button onclick="resetFilters()">Đặt lại</button>
+        </div>
+
+        <div id="stats" class="stats"></div>
+
+        <div id="loading" class="loading">Đang tải sản phẩm...</div>
+        <div id="error" class="error" style="display: none;"></div>
+        <div id="productsList" class="products-grid"></div>
+        <div id="noResults" class="no-results" style="display: none;">
+            Không tìm thấy sản phẩm phù hợp với tiêu chí của bạn.
+        </div>
+    </div>
+
+    <!-- Modal for product details -->
+    <div id="productModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeModal()">&times;</span>
+            <img id="modalImage" class="modal-image" src="" alt="Sản phẩm">
+            <div class="modal-category" id="modalCategory"></div>
+            <div class="modal-title" id="modalTitle"></div>
+            <div class="modal-price" id="modalPrice"></div>
+            <div class="modal-description" id="modalDescription"></div>
+            <div class="modal-date" id="modalDate"></div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
